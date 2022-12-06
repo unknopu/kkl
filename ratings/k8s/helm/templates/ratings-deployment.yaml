@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: bookinfo-dev
+  labels:
+    app: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Release.Name }}
+        image: asia.gcr.io/[PROJECT_ID]/bookinfo-ratings:dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9080
+          name: web-port
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 9080
+            scheme: HTTP
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 9080
+            scheme: HTTP
+        env:
+        - name: SERVICE_VERSION
+          value: v2
+        - name: MONGO_DB_URL
+          value: mongodb://{{ .Release.Name }}-mongodb:27017/ratings-dev
+        - name: MONGO_DB_USERNAME
+          value: ratings-dev
+        - name: MONGO_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-mongodb-secret
+              key: mongodb-password
+      imagePullSecrets:
+      - name: registry-bookinfo
