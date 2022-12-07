@@ -33,17 +33,19 @@ spec:
             path: {{ .Values.ratings.healthCheckPath }}
             port: {{ .Values.ratings.port }}
             scheme: HTTP
+        {{- if .Values.extraEnv }}
         env:
-        - name: SERVICE_VERSION
-          value: v2
-        - name: MONGO_DB_URL
-          value: mongodb://{{ .Release.Name }}-mongodb:27017/ratings-dev
-        - name: MONGO_DB_USERNAME
-          value: ratings-dev
+        {{- range $key, $value := .Values.extraEnv }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+        {{- end }}
+        {{- if .Values.ratings.mongodbPasswordExistingSecret }}
         - name: MONGO_DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ .Values.ratings.mongodbPasswordExistingSecret }}
               key: mongodb-password
+        {{- end }}
+        {{- end }}
       imagePullSecrets:
       - name: {{ .Values.ratings.imagePullSecrets }}
