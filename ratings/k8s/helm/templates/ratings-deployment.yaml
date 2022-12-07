@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
-  namespace: bookinfo-dev
+  namespace: {{ .Values.ratings.namaspace }}
   labels:
     app: {{ .Release.Name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.ratings.replicas }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}
@@ -17,21 +17,21 @@ spec:
     spec:
       containers:
       - name: {{ .Release.Name }}
-        image: asia.gcr.io/[PROJECT_ID]/bookinfo-ratings:dev
+        image: {{ .Values.ratings.image }}:{{ .Values.ratings.tag }}
         imagePullPolicy: Always
         ports:
-        - containerPort: 9080
+        - containerPort: {{ .Values.ratings.port }}
           name: web-port
           protocol: TCP
         livenessProbe:
           httpGet:
             path: /health
-            port: 9080
+            port: {{ .Values.ratings.port }}
             scheme: HTTP
         readinessProbe:
           httpGet:
             path: /health
-            port: 9080
+            port: {{ .Values.ratings.port }}
             scheme: HTTP
         env:
         - name: SERVICE_VERSION
@@ -46,4 +46,4 @@ spec:
               name: {{ .Release.Name }}-mongodb-secret
               key: mongodb-password
       imagePullSecrets:
-      - name: registry-bookinfo
+      - name: {{ .Values.ratings.imagePullSecrets }}
