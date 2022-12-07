@@ -8,10 +8,10 @@ metadata:
   namespace: {{ .Values.ratings.namaspace }}
 spec:
   rules:
-  - host: bookinfo.dev.opsta.net
+  - host: {{ .Values.ingress.host }}
     http:
       paths:
-      - path: /ratings(/|$)(.*)
+      - path: {{ .Values.ingress.path }}
         pathType: Prefix
         backend:
           service:

@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ .Values.ratings.namaspace }}
 spec:
-  type: ClusterIP
+  type: {{ .Values.ingress.serviceType }}
   ports:
   - port: {{ .Values.ratings.port }}
   selector:
