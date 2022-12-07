@@ -11,7 +11,7 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$2
-  host: bookinfo.dev.iconica.tech
+  host: 34.126.185.195.nip.io
   path: "/ratings(/|$)(.*)"
   serviceType: ClusterIP
 extraEnv:
