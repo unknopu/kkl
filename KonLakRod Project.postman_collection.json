@@ -1,0 +1,887 @@
+{
+	"info": {
+		"_postman_id": "00b25da3-bd04-4939-8b0d-2e4e70fb1752",
+		"name": "KonLakRod Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17886099"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "UserID",
+								"value": "1234",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/users?page=1&size=10",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/6316ee021418d7d838401adb",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"6316ee021418d7d838401adb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"TESTUSER\",\r\n    \"password\": \"1234\",\r\n    \"first_name\": \"test12\",\r\n    \"last_name\": \"test22\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"6316ec692392b3b381caa196\",\r\n    \"first_name\":\"test1_update\",\r\n    \"last_name\":\"test2_update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"6316ec692392b3b381caa196\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "image/upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Asus/Downloads/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/users/image/upload",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/users/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEST_ZONE",
+			"item": [
+				{
+					"name": "upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "new",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "newzaza11911@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": "/C:/Users/Asus/Downloads/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1323/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1323",
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/books/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/books/7c8d8ab977d845f7bb60ecfa3c87b3cd",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"books",
+								"7c8d8ab977d845f7bb60ecfa3c87b3cd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/books",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"new17:14\",\r\n    \"author\":\"TEST17.14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/books",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"b1b28377d9e640c9905142b4e86cd200\",\r\n    \"name\": \"newNaKub\",\r\n    \"author\": \"TestNa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/books",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/books",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-cloud/image/upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Asus/Downloads/image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/tests/google-cloud/image/upload",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tests",
+								"google-cloud",
+								"image",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JWT",
+			"item": [
+				{
+					"name": "Accessible",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restricted-test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NjMzMzQyNTUsImp0aSI6Ijg2NDk1ZDJiLTY5MjItNDk3OS1hOWU5LTUxNThkMWViMzQxMiIsImlhdCI6MTY2MzI0Nzg1NSwiaXNzIjoiS29uTGFrUm9kIiwic3ViIjoiYWNjZXNzX3Rva2VuIiwiUmVmcmVzaFRva2VuSUQiOjAsIlJvbGVzIjpbInVzZXIiLCJhZG1pbiIsImdhcmFnZSJdLCJ1c2VyIjp7ImlkIjoiNjMyMDJmNjEwM2I0MjIwNTExNWQ2ZmQ4IiwidXBkYXRlZEF0IjoiMjAyMi0wOS0xM1QwNzoyMTowNS4yOTZaIiwiY3JlYXRlZEF0IjoiMjAyMi0wOS0xM1QwNzoyMTowNS4yOTZaIiwiZmlyc3ROYW1lIjoidGVzdDEiLCJsYXN0TmFtZSI6InRlc3QyIiwicHJvZmlsZUltYWdlIjoiIiwiYmlydGhkYXkiOiIiLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRiWDNNQTQ5YzZIZk4xWmxyQzBPZm9PeHVqNklCbWQ2NktTTWNqTG5INEdNVFNZV29na0hrTyIsInJvbGVzIjpbInVzZXIiLCJhZG1pbiIsImdhcmFnZSJdLCJhY3RpdmF0ZSI6ZmFsc2UsInVzZXJTZXgiOiIifSwidXNlcl9pZCI6IjYzMjAyZjYxMDNiNDIyMDUxMTVkNmZkOCJ9.Oi9e9fqf436dXJim4uNWIm94jg1gRjaxdTZvc7M6qVM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:80/restricted",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "80",
+							"path": [
+								"restricted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "restricted-dev",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/restricted",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"restricted"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "jon",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "shhh!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:1323/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "1323",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-test",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "jon",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "shhh!",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "guest/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/guest/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"guest",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tokens/refreshToken",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA0ODQ2OTIsImp0aSI6IjdjNWQ5MWJjLTIwODktNGZkNS05ZjJkLTFkZmFmYWIxMWI1MCIsImlhdCI6MTY3MDQ4MTA5MiwiaXNzIjoiS29uTGFrUm9kIiwic3ViIjoiYWNjZXNzX3Rva2VuIiwicm9sZXMiOlsiVXNlciIsIkFkbWluIiwiR2FyYWdlIl0sInVzZXJfaWQiOiI2MzIwMmY2MTAzYjQyMjA1MTE1ZDZmZDgifQ.qOUAr4sp0GXPS_XSsGElbIt77fyKaCcz4OB2e6JkYos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/tokens/refreshToken",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"tokens",
+								"refreshToken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "guest",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/guest/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"guest",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post-topic",
+			"item": [
+				{
+					"name": "post-topic",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"TEST_TITLE\",\r\n    \"tag\": [\r\n        \"TEST_TAG1\",\r\n        \"TEST_TAG2\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/post-topic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-topic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-topic/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/post-topic/632c29daa5312f02e39a9435",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-topic",
+								"632c29daa5312f02e39a9435"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-topic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/post-topic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-topic"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-topic",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"632c29daa5312f02e39a9435\",\r\n    \"title\": \"9999\",\r\n    \"tag\": [\r\n        \"4444\",\r\n        \"5555\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/post-topic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-topic"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-topic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"632c29daa5312f02e39a9435\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/post-topic",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-topic"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post-reply",
+			"item": [
+				{
+					"name": "post-reply/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/post-reply/632c77b20d60f8b0ce6862f1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-reply",
+								"632c77b20d60f8b0ce6862f1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-reply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"topic_ref_id\": \"632c2ed6a5312f02e39a9436\",\r\n    \"answer\": \"TEST_TAG1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/post-reply",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-reply"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-reply",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/post-reply",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-reply"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-reply",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"632c77b20d60f8b0ce6862f1\",\r\n    \"answer\": \"222222222222\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/post-reply",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post-reply"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}",
+					"host": [
+						"{{URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "restricted",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA0MzEzMzksImp0aSI6ImQwYjZjNjExLTVhMGYtNGEwZS04ZmM4LTA3MDM2NjMyYTAzNiIsImlhdCI6MTY3MDQyNzczOSwiaXNzIjoiS29uTGFrUm9kIiwic3ViIjoiYWNjZXNzX3Rva2VuIiwicm9sZXMiOlsiVXNlciIsIkFkbWluIiwiR2FyYWdlIl0sInVzZXJfaWQiOiI2MzIwMmY2MTAzYjQyMjA1MTE1ZDZmZDgifQ.foxaxTOqcbFf80WcooojQ_QxoSdwv05khdV46E0HgEE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{URL}}/restricted",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"restricted"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

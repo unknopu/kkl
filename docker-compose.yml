@@ -1,0 +1,30 @@
+version: "3"
+services:
+  basic-docker-api:
+    container_name: docker-api
+    build: .
+    ports:
+      - 1323:1323
+    environment:
+      MONGOURI: mongodb
+      REDIS_URI: redis
+      REDIS_PORT: "6379"
+    networks:
+      - mynet  
+      
+  redis:
+    container_name: redis
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - mynet 
+    volumes:
+      - redisdata:/data
+
+networks:
+  mynet:
+
+volumes:
+  redisdata:
