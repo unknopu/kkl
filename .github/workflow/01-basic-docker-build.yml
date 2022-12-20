@@ -3,10 +3,9 @@ name: 01 Basic Dcoker Build
 
 on:
   push:
-    branches:
-      branches: [ "main" ]
-    pull_request:
-      branches: [ "main" ]
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   
 jobs:
   build-image:
