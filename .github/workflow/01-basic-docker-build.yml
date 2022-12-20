@@ -23,4 +23,3 @@ jobs:
         with:
           push: ${{ github.evet_name != 'pull_request' }}
           tags: unknopu/allhands22:latest,unknopu/allhands22:01
-          
