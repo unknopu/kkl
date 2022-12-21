@@ -1,6 +1,11 @@
 ---
 name: 01 Basic Dcoker Build
 
+env:
+  GKE_CLUSTER: iconica  
+  GKE_ZONE: asia-southeast1-a	 
+  DEPLOYMENT_NAME: ${{ github.event.repository.name }} 
+
 on:
   push:
     branches: [ "main" ]
@@ -26,6 +31,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: unknopu/allhands22:02
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }}
