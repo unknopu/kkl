@@ -44,16 +44,16 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}          
 
-      # - name: Unit Testing in Docker
-      #   run: |
-      #     docker run --rm ${{ github.run_id }} echo "run test"
-      
       - name: Docker build & push
         uses: docker/build-push-action@v2
         with:
-          push: true
+          push: false
           load: true
           tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }}
           platforms: linux/amd64
+
+      # - name: Unit Testing in Docker
+      #   run: |
+      #     docker run --rm ${{ github.run_id }} echo "run test"
 
         
