@@ -57,6 +57,10 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
+
+      - name: Unit Testing in Docker
+        run: |
+          docker --run --rm ${{ github.run_id}} echo "run unit testing"
       
 
       
