@@ -51,6 +51,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          compose-file: "./docker-compose.yml"
           load: false
           tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }}
           cache-from: type=gha
