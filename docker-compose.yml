@@ -1,21 +1,28 @@
 version: "3"
 services:
-  basic-docker-api:
-    container_name: docker-api
+  testapi:
+    container_name: testapi
     build: .
     ports:
-      - 1323:1323
+      - 4000:4000
     environment:
-      MONGOURI: mongodb
+      MONGOURI: mongodb://mongodb:27017
       REDIS_URI: redis
       REDIS_PORT: "6379"
     networks:
       - mynet  
       
+  database:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - mynet 
+
   redis:
     container_name: redis
     image: redis
-    restart: always
     ports:
       - 6379:6379
     networks:
