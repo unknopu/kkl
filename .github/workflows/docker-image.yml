@@ -53,7 +53,8 @@ jobs:
           push: true
           compose-file: "./docker-compose.yml"
           load: false
-          tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }},${{ format('unknopu/{0}:${{ steps.vars.outputs.tag }}', env.DEPLOYMENT_NAME) }}
+          tags: unknopu/${{ env.DEPLOYMENT_NAME }}:latest, unknopu/${{ env.DEPLOYMENT_NAME }}:${{ steps.vars.outputs.tag }}
+          # tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }},${{ format('unknopu/{0}:${{ steps.vars.outputs.tag }}', env.DEPLOYMENT_NAME) }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
