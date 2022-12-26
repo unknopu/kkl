@@ -53,14 +53,10 @@ jobs:
           push: true
           compose-file: "./docker-compose.yml"
           load: false
-          tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }}
+          tags: ${{ format('unknopu/{0}:latest', env.DEPLOYMENT_NAME) }},${{ format('unknopu/{0}:1.0.0', env.DEPLOYMENT_NAME) }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           platforms: linux/amd64
-
-      - name: Unit Testing in Docker
-        run: |
-          docker --run --rm ${{ github.run_id}} echo "run unit testing"
       
 
       
