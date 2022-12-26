@@ -43,6 +43,7 @@ func initViper() {
 
 }
 func initGoDotEnv() {
+	// validate .env file
 	if _, err := os.Stat(".env"); err != nil {
 		log.Println("[*] initiate .env file")
 		_, err := os.Create(".env")
