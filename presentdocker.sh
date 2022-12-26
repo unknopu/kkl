@@ -10,11 +10,11 @@ MY_MONGO="mongodb"
 MY_REDIS="redis"
 MY_API="testapi"
 
-if docker network ls | grep ' $MY_NETWORK '; then
+if docker network ls | grep -i ".* mynet .*" >/dev/null 2>&1; then
     echo "[!] found network: $MY_NETWORK"
 else
     echo "[*] initiate network: mynet"
-    docker network create $MY_NETWORK
+    docker network create $MY_NETWORK >/dev/null 2>&1
 fi
 
 if [ "$(docker ps -aq -f name=$MY_MONGO)" ]; then
